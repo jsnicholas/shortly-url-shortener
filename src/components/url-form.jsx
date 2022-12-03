@@ -40,11 +40,11 @@ function App() {
           <input
             type="text"
             ref={get_longLink}
-            className="block w-full rounded-md p-4 h-16"
+            className="block w-5/6 rounded-md p-4 h-16"
             placeholder="Shorten a Link here..."
           />
           <button
-            className="ml-8 text-white bg-cyan rounded-md px-8 h-16"
+            className="ml-8 w-1/6 text-white bg-cyan rounded-md px-8 h-16"
             onClick={getShortLink}
           >
             Shorten it!
@@ -52,13 +52,13 @@ function App() {
         </div>
       </div>
       <div
-        className="flex flex-col rounded-md bg-white mx-auto my-8 w-1/5"
+        className="text-lg flex justify-between rounded-md bg-white mx-40 my-8 p-8"
         role="alert"
       >
         <span id="originalLink" className="">
           {getOrig}
         </span>
-        <span id="shortLink" className="">
+        <span id="shortLink" className="text-cyan">
           {getShort}
         </span>
         <button

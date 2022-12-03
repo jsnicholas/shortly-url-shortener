@@ -3,12 +3,12 @@ import topimg from "../images/illustration-working.svg";
 
 function Hero() {
   return (
-    <section className="flex justify-center pb-20">
-      <div className="w-2/4 mx-20">
-        <h1 className="text-7xl font-bold text-verydarkviolet leading-10">
+    <section className="px-40 mb-40 flex justify-between mr-8">
+      <div className="w-1/2 flex-none">
+        <h1 className="text-7xl font-bold text-verydarkviolet leading-20">
           More than just shorter links
         </h1>
-        <p className="heroSubtext text-gray text-xl py-6">
+        <p className="heroSubtext text-gray text-xl py-6 w-3/4">
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
@@ -20,7 +20,7 @@ function Hero() {
         </button>
       </div>
 
-      <div className="-mr-20">
+      <div className="-mr-40">
         <img
           src={topimg}
           alt="Illustration of person working at their computer"

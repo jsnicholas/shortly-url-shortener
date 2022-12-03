@@ -6,7 +6,7 @@ import custom from "../images/icon-fully-customizable.svg";
 
 function Info() {
   return (
-    <section className="flex flex-col bg-infobg pb-8">
+    <section className="flex flex-col bg-infobg pb-20">
       <div className="-mt-24">
         <URLform />
       </div>
