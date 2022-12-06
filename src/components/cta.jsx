@@ -1,6 +1,6 @@
 function CTA() {
   return (
-    <section className="cta flex flex-col justify-center items-center bg-darkviolet p-14">
+    <section className="cta flex flex-col justify-center items-center text-center bg-darkviolet p-14">
       <h1 className="text-white text-4xl font-bold mb-8">
         Boost your links today
       </h1>
