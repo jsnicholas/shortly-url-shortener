@@ -6,19 +6,21 @@ import custom from "../images/icon-fully-customizable.svg";
 
 function Info() {
   return (
-    <section className="flex flex-col bg-infobg pb-20">
-      <div className="-mt-24">
-        <URLform />
-      </div>
-      {/* Section Header */}
-      <div className="self-auto text-center m-20">
-        <h1 className="text-4xl font-bold text-verydarkviolet">
-          Advanced Statistics
-        </h1>
-        <p className="text-gray text-xl leading-loose py-6">
-          Track how your links are performing across the web with our advanced
-          statistics dashboard.
-        </p>
+    <section className="bg-infobg pb-20">
+      <div clasName="flex flex-col">
+        <div className="-mt-24">
+          <URLform />
+        </div>
+        {/* Section Header */}
+        <div className="self-auto text-center m-20">
+          <h1 className="text-4xl font-bold text-verydarkviolet">
+            Advanced Statistics
+          </h1>
+          <p className="text-gray text-xl leading-loose py-6">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+        </div>
       </div>
 
       {/* Info Boxes Container */}
@@ -39,7 +41,7 @@ function Info() {
 
         {/* Records Box*/}
 
-        <div className="w-1/4 bg-white rounded-md mt-14 m-4 p-8">
+        <div className="w-1/4 bg-white rounded-md m-4 p-8">
           <div className="bubble -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
             <img
               src={records}
@@ -59,7 +61,7 @@ function Info() {
 
         {/* Customize Box */}
 
-        <div className="w-1/4 bg-white rounded-md mt-28 p-8 m-4">
+        <div className="w-1/4 bg-white rounded-md p-8 m-4">
           <div className="bubble -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
             <img
               src={custom}

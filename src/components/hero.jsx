@@ -3,8 +3,8 @@ import topimg from "../images/illustration-working.svg";
 
 function Hero() {
   return (
-    <section className="px-40 mb-40 flex justify-between mr-8">
-      <div className="w-1/2 flex-none">
+    <section className="px-32 mb-40 flex justify-between">
+      <div className="w-2/3">
         <h1 className="text-7xl font-bold text-verydarkviolet leading-20">
           More than just shorter links
         </h1>
@@ -14,13 +14,13 @@ function Hero() {
         </p>
         <button
           href="/boost"
-          className="bg-cyan px-8 py-4 text-white text-xl font-bold rounded-full"
+          className="bg-cyan px-10 py-3 text-white text-lg font-bold rounded-full"
         >
           Get Started
         </button>
       </div>
 
-      <div className="-mr-40">
+      <div className="-mr-52">
         <img
           src={topimg}
           alt="Illustration of person working at their computer"

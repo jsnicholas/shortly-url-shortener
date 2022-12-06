@@ -17,7 +17,7 @@ function App() {
         const shortener = await fetch(`${baseURL}${title}`);
         // If it broke, give an error
         if (!shortener.ok) {
-          const message = `An error has occurred: ${shortener.status} - ${shortener.statusText}`;
+          const message = `Uh oh! ${shortener.status} - ${shortener.statusText}`;
           throw new Error(message);
         }
 
@@ -40,29 +40,26 @@ function App() {
           <input
             type="text"
             ref={get_longLink}
-            className="block w-5/6 rounded-md p-4 h-16"
+            className="block w-9/12 rounded-md p-4"
             placeholder="Shorten a Link here..."
           />
           <button
-            className="ml-8 w-1/6 text-white bg-cyan rounded-md px-8 h-16"
+            className="ml-8 w-fit text-white bg-cyan rounded-md font-bold  text-lg py-2 px-8"
             onClick={getShortLink}
           >
             Shorten it!
           </button>
         </div>
       </div>
-      <div
-        className="text-lg flex justify-between rounded-md bg-white mx-40 my-8 p-8"
-        role="alert"
-      >
-        <span id="originalLink" className="">
+      <div className="text-lg flex justify-end rounded-md bg-white mx-40 my-8 p-8">
+        <span id="originalLink" className="w-full">
           {getOrig}
         </span>
         <span id="shortLink" className="text-cyan">
           {getShort}
         </span>
         <button
-          className="ml-4 text-white bg-cyan rounded-md p-4"
+          className="ml-4 text-white bg-cyan rounded-md px-8 py-2 text-sm font-bold"
           onClick={() => {
             navigator.clipboard.writeText(`${getShort}`);
           }}
