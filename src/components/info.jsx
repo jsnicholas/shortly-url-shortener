@@ -7,7 +7,7 @@ import custom from "../images/icon-fully-customizable.svg";
 function Info() {
   return (
     <section className="bg-infobg pb-20">
-      <div clasName="flex flex-col">
+      <div className="flex flex-col">
         <div className="-mt-24">
           <URLform />
         </div>
@@ -24,7 +24,7 @@ function Info() {
       </div>
 
       {/* Info Boxes Container */}
-      <div className="flex flex-col space-y-20 md:flex-row mt-12 md:mt-8 justify-center text-gray text-center md:text-left">
+      <div className="flex flex-col space-y-20 md:space-y-0 md:flex-row mt-12 md:mt-8 justify-center text-gray text-center md:text-left">
         {/* Brand Rec Box*/}
         <div className="w-fit md:w-1/4 bg-white rounded-md mx-8 md:m-4 p-8">
           <div className="bubble m-auto -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
