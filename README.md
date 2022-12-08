@@ -33,8 +33,8 @@ Feature Roadmap:
 
 ### Screenshots
 
-![](url-shortener/src/images/screenshot-desktop.png)
-![](url-shortener/src/images/screenshot-mobile.png)
+![](src/images/screenshot-desktop.png)
+![](src/images/screenshot-mobile.png)
 
 ## My process
 
