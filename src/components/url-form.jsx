@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="flex flex-col align-center justify-center rounded-lg relative -top-8 md:top-1">
       <div className="card-body flex justify-center">
-        <div className="flex flex-col md:flex-row justify-center p-4 md:p-12 w-full m-6 md:w-3/4 rounded-md bg-darkviolet linkSection">
+        <div className="flex flex-col md:flex-row justify-center p-4 md:p-12 w-3/4 m-6 md:w-3/4 rounded-md bg-darkviolet linkSection">
           <input
             type="text"
             ref={get_longLink}
@@ -50,28 +50,28 @@ function App() {
             onClick={() => {
               getShortLink();
               document.getElementById("urlInfo").className =
-                "text-lg flex justify-end rounded-md bg-white mx-40 my-8 p-8";
+                "text-lg w-3/4 text-center space-y-6 md:space-y-0 md:text-left self-center block md:flex md:justify-start rounded-md bg-white md:mx-40 py-8 mx-6 px-6";
             }}
           />
         </div>
       </div>
       <div id="urlInfo" className="hidden">
-        <span id="originalLink" className="w-full">
+        <span id="originalLink" className="block md:w-full">
           {getOrig}
         </span>
-        <span id="shortLink" className="text-cyan">
+        <span id="shortLink" className="block text-cyan">
           {getShort}
         </span>
         <input
           type="button"
           id="copyButton"
           value="Copy"
-          className="ml-4 text-white bg-cyan rounded-md px-8 py-2 text-sm font-bold"
+          className="md:ml-4 text-white bg-cyan rounded-md px-8 py-2 text-sm font-bold w-full md:w-fit"
           onClick={() => {
             navigator.clipboard.writeText(`${getShort}`);
             document.getElementById("copyButton").value = "Copied!";
             document.getElementById("copyButton").className =
-              "ml-4 text-white bg-verydarkviolet rounded-md px-8 py-2 text-sm font-bold";
+              "md:ml-4 text-white bg-verydarkviolet rounded-md px-8 py-2 text-sm font-bold w-full md:w-fit";
           }}
         />
       </div>
