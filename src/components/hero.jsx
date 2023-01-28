@@ -4,7 +4,7 @@ import topimg from "../images/illustration-working.svg";
 function Hero() {
   return (
     <section className="mb-40 flex flex-col md:flex-row md:justify-between lg:justify-center">
-      <div className="max-w-xl mx-6 text-center order-2 md:order-1 md:text-left md:ml-32">
+      <div className="m-auto max-w-xl text-center order-2 md:order-1 md:text-left md:ml-32">
         <h1 className="text-5xl font-bold text-verydarkviolet leading-20 md:text-7xl">
           More than just shorter links
         </h1>
