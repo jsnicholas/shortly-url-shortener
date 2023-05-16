@@ -1,5 +1,4 @@
-import React from "react";
-import topimg from "../images/illustration-working.svg";
+// import topimg from "../images/illustration-working.svg";
 
 function Hero() {
   return (
@@ -12,19 +11,16 @@ function Hero() {
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button
-          href="/boost"
-          className="bg-cyan px-10 py-3 text-white text-lg font-bold rounded-full"
-        >
+        <button className="bg-cyan px-10 py-3 text-white text-lg font-bold rounded-full">
           Get Started
         </button>
       </div>
 
       <div className="order-1 md:order-2 -mr-28 ml-10 md:-mr-40 mb-8 md:mb-0">
-        <img
+        {/* <img
           src={topimg}
           alt="Illustration of person working at their computer"
-        ></img>
+        ></img> */}
       </div>
     </section>
   );
