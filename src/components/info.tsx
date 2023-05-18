@@ -1,4 +1,3 @@
-import React from "react";
 import URLform from "./url-form";
 import graph from "../images/icon-brand-recognition.svg";
 import records from "../images/icon-detailed-records.svg";
@@ -24,12 +23,15 @@ function Info() {
       </div>
 
       {/* Info Boxes Container */}
-      <div className="flex flex-col space-y-20 md:space-y-0 md:flex-row mt-12 md:mt-8 justify-center text-gray text-center md:text-left">
+      <div className="flex flex-col space-y-20 md:space-y-0 md:flex-row mt-12 md:mt-8 justify-center text-neutral text-center md:text-left">
         {/* Brand Rec Box*/}
-        <div className="w-fit md:w-1/4 bg-white rounded-md mx-8 md:m-4 p-8">
-          <div className="bubble m-auto -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
-            <img src={graph} className="" aria-hidden="true" alt="graph icon" />
-          </div>
+        <div className="card w-96 md:w-1/4 bg-white rounded-md mx-8 p-8">
+          <img
+            src={graph}
+            className="w-10"
+            aria-hidden="true"
+            alt="graph icon"
+          />
           <h1 className="mt-3 text-lg font-bold text-verydarkviolet">
             Brand Recognition
           </h1>
@@ -41,15 +43,13 @@ function Info() {
 
         {/* Records Box*/}
 
-        <div className="w-fit md:w-1/4 bg-white rounded-md mx-8 md:m-4 p-8">
-          <div className="bubble m-auto -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
-            <img
-              src={records}
-              className=""
-              aria-hidden="true"
-              alt="graph icon"
-            />
-          </div>
+        <div className="card w-96 md:w-1/4 bg-white rounded-md mx-8 md:m-4 p-8">
+          <img
+            src={records}
+            className="w-10"
+            aria-hidden="true"
+            alt="graph icon"
+          />
           <h1 className="mt-3 text-lg font-bold text-verydarkviolet">
             Detailed Records
           </h1>
@@ -62,14 +62,7 @@ function Info() {
         {/* Customize Box */}
 
         <div className="w-fit md:w-1/4 bg-white rounded-md p-8 mx-8">
-          <div className="bubble m-auto -mt-20 p-6 rounded-full bg-darkviolet w-20 h-20">
-            <img
-              src={custom}
-              className=""
-              aria-hidden="true"
-              alt="graph icon"
-            />
-          </div>
+          <img src={custom} className="" aria-hidden="true" alt="graph icon" />
           <h1 className="mt-3 text-lg font-bold text-verydarkviolet">
             Fully Customizable
           </h1>
