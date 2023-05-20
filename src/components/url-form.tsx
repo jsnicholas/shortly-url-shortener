@@ -1,11 +1,12 @@
 import axios from "axios";
+// @ts-expect-error: gelerator has no defined types
 import { g } from "gelerator";
 
 const baseURL = "https://api.shrtco.de/v2/shorten?url=";
-
 function urlForm() {
   //Take the long link from user input
   async function getShortLink() {
+    // @ts-expect-error: Possibly Null Ref
     const userURL = document.getElementById("url-form").value;
     try {
       await axios({
@@ -30,6 +31,7 @@ function urlForm() {
           const copyButton = g("button.btn-primary", {
             onclick: copyShortLink(),
           })(`Copy Short Link`);
+          // @ts-expect-error: Possibly Null Ref
           linkBox.appendChild(newEl);
           newEl.appendChild(newEl2);
           newEl.appendChild(copyButton);
@@ -66,5 +68,4 @@ function urlForm() {
     </div>
   );
 }
-
 export default urlForm;
