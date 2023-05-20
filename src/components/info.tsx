@@ -1,4 +1,3 @@
-import URLform from "./url-form";
 import graph from "../images/icon-brand-recognition.svg";
 import records from "../images/icon-detailed-records.svg";
 import custom from "../images/icon-fully-customizable.svg";
@@ -7,9 +6,6 @@ function Info() {
   return (
     <section className="bg-infobg pb-20">
       <div className="flex flex-col">
-        <div className="-mt-24">
-          <URLform />
-        </div>
         {/* Section Header */}
         <div className="self-auto text-center mx-6 md:m-20">
           <h1 className="text-3xl md:text-4xl font-bold text-verydarkviolet">

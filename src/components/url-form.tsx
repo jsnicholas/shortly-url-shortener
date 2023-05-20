@@ -1,11 +1,9 @@
 import axios from "axios";
-import ShortenedCard from "./shortenedCard";
+import { g } from "gelerator";
 
 const baseURL = "https://api.shrtco.de/v2/shorten?url=";
 
 function urlForm() {
-  let originalLink;
-  let shortLink;
   //Take the long link from user input
   async function getShortLink() {
     const userURL = document.getElementById("url-form").value;
@@ -16,9 +14,28 @@ function urlForm() {
         headers: { "Content-Type": "multipart/form-data" },
       }).then((response) => {
         //handle success
-        console.log(response.data.result);
-        let originalLink = response.data.result.original_link;
-        let shortLink = response.data.result.full_short_link;
+        const linkBox = document.querySelector("#linkBox");
+        const originalLink = JSON.stringify(response.data.result.original_link);
+        const shortLink = JSON.stringify(response.data.result.full_short_link);
+        function copyShortLink() {
+          navigator.clipboard.writeText(shortLink.replace(/"/g, ""));
+        }
+        function makeLinkBox() {
+          const newEl = g("div.alert.alert-info.shadow-lg.mt-2")(
+            `<a href=${originalLink}>${originalLink.replace(/"/g, "")}</a>`
+          );
+          const newEl2 = g("span")(
+            `<a href=${shortLink}>${shortLink.replace(/"/g, "")}</a>`
+          );
+          const copyButton = g("button.btn-primary", {
+            onclick: copyShortLink(),
+          })(`Copy Short Link`);
+          linkBox.appendChild(newEl);
+          newEl.appendChild(newEl2);
+          newEl.appendChild(copyButton);
+        }
+        makeLinkBox();
+        console.log(response.data.result.original_link);
       });
     } catch (err) {
       console.log(err);
@@ -45,7 +62,7 @@ function urlForm() {
           </button>
         </div>
       </div>
-      <ShortenedCard originalLink={originalLink} shortLink={shortLink} />
+      <div id="linkBox"></div>
     </div>
   );
 }
