@@ -1,7 +1,9 @@
 import axios from "axios";
+import { g } from "gelerator";
 
 const baseURL = "https://api.shrtco.de/v2/shorten?url=";
-function App() {
+
+function urlForm() {
   //Take the long link from user input
   async function getShortLink() {
     const userURL = document.getElementById("url-form").value;
@@ -12,7 +14,28 @@ function App() {
         headers: { "Content-Type": "multipart/form-data" },
       }).then((response) => {
         //handle success
-        console.log(response);
+        const linkBox = document.querySelector("#linkBox");
+        const originalLink = JSON.stringify(response.data.result.original_link);
+        const shortLink = JSON.stringify(response.data.result.full_short_link);
+        function copyShortLink() {
+          navigator.clipboard.writeText(shortLink.replace(/"/g, ""));
+        }
+        function makeLinkBox() {
+          const newEl = g("div.alert.alert-info.shadow-lg.mt-2")(
+            `<a href=${originalLink}>${originalLink.replace(/"/g, "")}</a>`
+          );
+          const newEl2 = g("span")(
+            `<a href=${shortLink}>${shortLink.replace(/"/g, "")}</a>`
+          );
+          const copyButton = g("button.btn-primary", {
+            onclick: copyShortLink(),
+          })(`Copy Short Link`);
+          linkBox.appendChild(newEl);
+          newEl.appendChild(newEl2);
+          newEl.appendChild(copyButton);
+        }
+        makeLinkBox();
+        console.log(response.data.result.original_link);
       });
     } catch (err) {
       console.log(err);
@@ -20,33 +43,28 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col align-center justify-center rounded-lg relative -top-8 md:top-1">
-      <div className="card-body flex justify-center">
-        <div className="flex flex-col md:flex-row justify-center p-4 md:p-12 w-3/4 m-6 md:w-3/4 rounded-md bg-darkviolet linkSection">
-          <form method="post">
-            <input
-              id="url-form"
-              name="url"
-              type="url"
-              className="block w-full md:w-11/12 rounded-md p-4 mb-4 md:mb-0"
-              placeholder="Shorten a Link here..."
-            />
-            <button type="button" onClick={getShortLink}>
-              Submit
-            </button>
-          </form>
+    <div className="w-full p-5">
+      <div className="form-control">
+        <div className="input-group input-group-lg">
+          <input
+            id="url-form"
+            name="url"
+            type="url"
+            className="input input-bordered input-lg w-full bg-primary-content"
+            placeholder="Shorten a Link here..."
+          />
+          <button
+            className="btn btn-primary btn-lg"
+            type="button"
+            onClick={getShortLink}
+          >
+            Submit
+          </button>
         </div>
       </div>
-      <div id="urlInfo" className="hidden">
-        <span id="originalLink" className="block md:w-full">
-          {/* {getOrig} */}
-        </span>
-        <span id="shortLink" className="block text-cyan">
-          {/* {getShort} */}
-        </span>
-      </div>
+      <div id="linkBox"></div>
     </div>
   );
 }
 
-export default App;
+export default urlForm;
