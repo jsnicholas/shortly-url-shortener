@@ -2297,6 +2297,15 @@ html {
   outline-offset: 2px;
 }
 
+.input-info {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--in) / var(--tw-border-opacity));
+}
+
+.input-info:focus {
+  outline: 2px solid hsl(var(--in));
+}
+
 .input-disabled,
   .input[disabled] {
   cursor: not-allowed;

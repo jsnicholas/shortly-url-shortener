@@ -47,12 +47,12 @@ function urlForm() {
   return (
     <div className="w-full p-5">
       <div className="form-control">
-        <div className="input-group input-group-lg">
+        <div className="input-group input-group-lg text-content">
           <input
             id="url-form"
             name="url"
             type="url"
-            className="input input-bordered input-lg w-full bg-primary-content"
+            className="input input-bordered input-lg input-info w-full bg-primary-content text-neutral"
             placeholder="Shorten a Link here..."
           />
           <button
