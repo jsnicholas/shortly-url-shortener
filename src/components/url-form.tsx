@@ -28,7 +28,7 @@ function urlForm() {
           const newEl2 = g("span")(
             `<a href=${shortLink}>${shortLink.replace(/"/g, "")}</a>`
           );
-          const copyButton = g("button.btn-primary", {
+          const copyButton = g("button.btn.btn-primary", {
             onclick: copyShortLink(),
           })(`Copy Short Link`);
           // @ts-expect-error: Possibly Null Ref

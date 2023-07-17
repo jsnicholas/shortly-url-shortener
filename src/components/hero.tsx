@@ -8,7 +8,7 @@ function Hero() {
         backgroundImage: `url(${bgimg})`,
       }}
     >
-      <div className="hero-content text-center text-neutral-content">
+      <div className="hero-content text-center text-content">
         <div className="">
           <h1 className="mb-5 text-5xl font-bold">
             More than just shorter links
@@ -17,7 +17,9 @@ function Hero() {
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <a className="btn btn-primary" href="#url-form">
+            Get Started
+          </a>
         </div>
       </div>
     </section>

@@ -1,12 +1,24 @@
+import bgImgInfo from "../images/bg-boost-desktop.svg";
+
 function CTA() {
   return (
-    <section className="cta flex flex-col justify-center items-center text-center bg-darkviolet p-14">
-      <h1 className="text-white text-4xl font-bold mb-8">
+    <section
+      className="cta flex flex-col justify-center items-center text-center text-content bg-darkviolet p-14"
+      style={{
+        backgroundImage: `url(${bgImgInfo})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <h1 className="text-content text-4xl font-bold mb-8">
         Boost your links today
       </h1>
-      <button className="bg-cyan px-8 py-4 text-white text-xl font-bold rounded-full">
+      <a
+        className="btn btn-primary px-8 text-xl font-bold rounded-full"
+        href="#url-form"
+      >
         Get Started
-      </button>
+      </a>
     </section>
   );
 }
