@@ -1,3 +1,5 @@
+// @ts-nocheck
+// TO-DO: update types
 import axios from "axios";
 import { useState } from "react";
 
@@ -6,12 +8,12 @@ const baseURL = "https://api.shrtco.de/v2/shorten?url=";
 //Take the long link from user input
 function LinkInput() {
   const [items, setItems] = useState([]);
-  const addItem = (itemClass) => setItems([...items, itemClass]);
-  function copyShortLink(shortLink) {
+  const addItem = (itemClass: string) => setItems([...items, itemClass]);
+  function copyShortLink(shortLink: string) {
     navigator.clipboard.writeText(shortLink);
   }
   const [buttonText, setButtonText] = useState("Copy Short Link");
-  const changeText = (text) => setButtonText(text);
+  const changeText = (text: string) => setButtonText(text);
 
   async function getShortLink(event) {
     event.preventDefault();
@@ -57,7 +59,7 @@ function LinkInput() {
         </div>
       </div>
       {/* list the shortened links */}
-      {items.map((item, index) => (
+      {items.map((item: string, index) => (
         <div key={index} className="alert text-neutral shadow-lg mt-2 mb-4">
           <a href={item.original_link}>{item.original_link}</a>
           <span>
