@@ -13,8 +13,14 @@ function LinkInput() {
     navigator.clipboard.writeText(shortLink);
   }
   const [buttonText, setButtonText] = useState("Copy Short Link");
-  const changeText = (text: string) => setButtonText(text);
 
+  // method for changing copy button text
+  const changeText = (buttonText) => {
+    setButtonText(buttonText);
+  };
+
+  // fetch shortened URL via shortcode API
+  // then add response to items array
   async function getShortLink(event) {
     event.preventDefault();
     const longURL = event.target.firstChild.value;
@@ -33,6 +39,7 @@ function LinkInput() {
       console.log(err);
     }
   }
+
   return (
     <>
       <div className="w-full p-5">
@@ -44,7 +51,7 @@ function LinkInput() {
             <input
               id="url-form"
               name="url"
-              type="url"
+              type="text"
               className="input input-bordered input-lg input-info w-full bg-primary-content text-neutral"
               placeholder="Shorten a Link here..."
             />
