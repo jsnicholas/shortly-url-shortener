@@ -1,5 +1,3 @@
-// @ts-nocheck
-// TO-DO: update types
 import axios from "axios";
 import { useState } from "react";
 
@@ -7,7 +5,7 @@ const baseURL = "https://api.shrtco.de/v2/shorten?url=";
 
 //Take the long link from user input
 function LinkInput() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<any[]>([]);
   const addItem = (itemClass: string) => setItems([...items, itemClass]);
   function copyShortLink(shortLink: string) {
     navigator.clipboard.writeText(shortLink);
@@ -15,15 +13,15 @@ function LinkInput() {
   const [buttonText, setButtonText] = useState("Copy Short Link");
 
   // method for changing copy button text
-  const changeText = (buttonText) => {
+  const changeText = (buttonText: string) => {
     setButtonText(buttonText);
   };
 
   // fetch shortened URL via shortcode API
   // then add response to items array
-  async function getShortLink(event) {
+  async function getShortLink(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const longURL = event.target.firstChild.value;
+    const longURL = event.currentTarget.value;
     // request short url from user input
     try {
       await axios({
@@ -58,7 +56,7 @@ function LinkInput() {
             <button
               className="btn btn-primary btn-lg"
               type="submit"
-              onSubmit={getShortLink}
+              onSubmit={(event: any) => getShortLink(event)}
             >
               Submit
             </button>
@@ -66,23 +64,26 @@ function LinkInput() {
         </div>
       </div>
       {/* list the shortened links */}
-      {items.map((item: string, index) => (
-        <div key={index} className="alert text-neutral shadow-lg mt-2 mb-4">
-          <a href={item.original_link}>{item.original_link}</a>
-          <span>
-            <a href={item.short_link}>{item.short_link}</a>
-          </span>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              changeText("Copied!");
-              copyShortLink(item.short_link);
-            }}
-          >
-            {buttonText}
-          </button>
-        </div>
-      ))}
+      {items.map(
+        (item: { original_link: string; short_link: string }, index) => (
+          <div key={index} className="alert text-neutral shadow-lg mt-2 mb-4">
+            <a href={item.original_link}>{item.original_link}</a>
+            <span>
+              <a href={item.short_link}>{item.short_link}</a>
+            </span>
+            <button
+              key={index}
+              className="btn btn-primary"
+              onClick={() => {
+                changeText("Copied!");
+                copyShortLink(item.short_link);
+              }}
+            >
+              {buttonText}
+            </button>
+          </div>
+        )
+      )}
     </>
   );
 }
