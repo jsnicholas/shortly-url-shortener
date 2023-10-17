@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import "dotenv/config";
 
-const baseURL = "https://api.shrtco.de/v2/shorten?url=";
+const baseURL = "https://api-ssl.bitly.com/v4/shorten";
 
 //Take the long link from user input
 function LinkInput() {
@@ -26,8 +27,16 @@ function LinkInput() {
     try {
       await axios({
         method: "post",
-        url: baseURL + longURL,
-        headers: { "Content-Type": "multipart/form-data" },
+        url: baseURL,
+        headers: {
+          Authorization: process.env.BITLY_AUTHCODE,
+          "Content-Type": "application/json",
+        },
+        data: JSON.stringify({
+          long_url: longURL,
+          domain: "bit.ly",
+          group_guid: process.env.BITLY_GROUP_GUID,
+        }),
       }).then((response) => {
         // add the object to the list of shortened URLs
         addItem(response.data.result);
